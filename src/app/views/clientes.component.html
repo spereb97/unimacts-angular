@@ -1,0 +1,77 @@
+<div class="container-fluid">
+    <div class="row text-center">
+        <h1>CLIENTES</h1>
+    </div>
+    <div class="row">
+        <!-- Div izquierdo -->
+        <div class="col-3">
+            <div class="content">
+                <ul class="list-group">
+                    <li class="list-group-item rounded mt-2 border" *ngFor="let cliente of clientes"
+                        (click)="cargarClienteById(cliente.id)"
+                        (click)="cargarDireccionesByCliente(cliente.id)"
+                        (click)="cargarPedidosByCliente(cliente.id)"
+                        style="-webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none;">
+                        {{ cliente.nombreEmpresa }}
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- Div derecho -->
+        <div class="col-9">
+            <!-- Datos del cliente-->
+            <div class="content rounded border px-4 pt-3  mt-2" *ngIf="clienteById">
+                <p class="fs-5 text-uppercase">
+                    DATOS {{clienteById.nombreEmpresa}}:
+                </p>
+                <p>NIF: {{clienteById.nif}}</p>
+                <p>Nombre contacto: {{clienteById.nombreContacto}}</p>
+                <p>Email: {{clienteById.email}}</p>
+                <p>Telefono: {{clienteById.telefono}}</p>
+            </div>
+
+            <!-- Direcciones del cliente-->
+            <div class="content rounded border px-4 pt-3  mt-2" *ngIf="direccionesByCliente">
+                <ul style="padding: 0;">
+                    <li class="mt-2" *ngFor="let direccion of direccionesByCliente"
+                        style="list-style: none; margin: 0; padding: 0;">
+                        <p class="fs-5">
+                            DIRECCION {{direccion.tipo}}:
+                        </p>
+                        <p>
+                            {{direccion.calle}}, {{direccion.localidad}}, {{direccion.codigoPostal}}<br>
+                            {{direccion.provincia}}, {{direccion.pais}}<br>
+                        </p>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Pedidos del cliente-->
+            <div class="content rounded border px-4 pt-3  mt-2" *ngIf="pedidosByCliente">
+                <p class="fs-5 text-center">
+                    PEDIDOS:
+                </p>
+                <table class="table text-center">
+                    <thead>
+                      <tr>
+                        <th>ID</th>
+                        <th>ESTADO</th>
+                        <th>FECHA ENVIO</th>
+                        <th>FECHA LIMITE</th>
+                        <th>ACCIONES</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let pedido of pedidosByCliente">
+                        <td>{{ pedido.id }}</td>
+                        <td>{{ pedido.estado }}</td>
+                        <td>{{ pedido.fechaEnvio }}</td>
+                        <td>{{ pedido.fechaLimite }}</td>
+                        <td>proximamente...</td>
+                      </tr>
+                    </tbody>
+                  </table>
+            </div>
+        </div>
+    </div>
+</div>
