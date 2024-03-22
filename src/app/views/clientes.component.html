@@ -4,10 +4,11 @@
     </div>
     <div class="row">
         <!-- Div izquierdo -->
-        <div class="col-3">
+        <div class="col-3" style="height: 65vh; overflow: auto;">
             <div class="content">
                 <ul class="list-group">
-                    <li class="list-group-item rounded mt-2 border" *ngFor="let cliente of clientes"
+                    <li class="list-group-item rounded mt-2 border" *ngFor="let cliente of clientes; let i = index"  
+                        [ngClass]="i % 2 === 0 ? 'par' : 'impar'"
                         (click)="cargarClienteById(cliente.id)"
                         (click)="cargarDireccionesByCliente(cliente.id)"
                         (click)="cargarPedidosByCliente(cliente.id)"
@@ -51,7 +52,7 @@
                 <p class="fs-5 text-center">
                     PEDIDOS:
                 </p>
-                <table class="table text-center">
+                <table class="table table-striped table-hover text-center">
                     <thead>
                       <tr>
                         <th>ID</th>
@@ -61,10 +62,10 @@
                         <th>ACCIONES</th>
                       </tr>
                     </thead>
-                    <tbody>
+                    <tbody class="table-group-divider">
                       <tr *ngFor="let pedido of pedidosByCliente">
                         <td>{{ pedido.id }}</td>
-                        <td>{{ pedido.estado }}</td>
+                        <td><div [ngStyle]="getEstadoStyles(pedido.estado)">{{ pedido.estado }}</div></td>
                         <td>{{ pedido.fechaEnvio }}</td>
                         <td>{{ pedido.fechaLimite }}</td>
                         <td>proximamente...</td>
