@@ -1,1 +1,27 @@
-<p>tareas works!</p>
+<div class="container-fluid">
+    <div class="row text-center">
+        <h1>TAREAS</h1>
+    </div>
+    <div class="row">
+        <div class="content rounded border px-4 pt-3 mt-2">
+            <table class="table table-striped table-hover text-center">
+                <thead>
+                    <tr>
+                        <th>TAREA</th>
+                        <th>NOMBRE</th>
+                        <th>DESCRIPCION</th>
+                        <th>ACCIONES</th>
+                    </tr>
+                </thead>
+                <tbody class="table-group-divider">
+                    <tr *ngFor="let tarea of tareas">
+                        <td>{{ tarea.tarea }}</td>
+                        <td>{{ tarea.nombre }}</td>
+                        <td>{{ tarea.descripcion }}</td>
+                        <td>proximamente...</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

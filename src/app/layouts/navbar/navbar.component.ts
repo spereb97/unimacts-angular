@@ -9,8 +9,8 @@ import { NgFor } from '@angular/common';
   styleUrl: './navbar.component.scss'
 })
 export class NavbarComponent {
-  navItems: string[] = ['Dashboard', 'Pedidos', 'Clientes', 'Trabajadores', 'Piezas', 'Produccion', 'Tareas'];
-  navRoutes:  string[] = ['dashboard', 'pedidos', 'clientes', 'trabajadores', 'piezas', 'produccion', 'tareas'];
+  navItems: string[] = ['Dashboard', 'Produccion', 'Pedidos', 'Trabajadores', 'Clientes', 'Piezas', 'Tareas'];
+  navRoutes:  string[] = ['dashboard', 'produccion', 'pedidos', 'trabajadores', 'clientes', 'piezas', 'tareas'];
   navDropdown: string[] = ['Perfil', 'Opciones'];
   navDropdownRoutes: string[] = ['user'];
 }

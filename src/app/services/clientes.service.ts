@@ -6,6 +6,7 @@ import { Cliente } from '../models/cliente';
 @Injectable({
   providedIn: 'root'
 })
+
 export class ClientesService {
 
   private clientesUrl = 'http://192.168.68.56:8081/api/v1/clientes';

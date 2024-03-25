@@ -20,7 +20,7 @@ export class ClientesComponent implements OnInit{
 
   constructor(private clientesService : ClientesService){}
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.cargarClientes();
   }
 
