@@ -4,6 +4,10 @@
     cursor: pointer;
 }
 
+table tbody.pointer tr:hover td{
+    cursor: default;
+}
+
 li.impar {
     background-color: #393939;
     color: white;
