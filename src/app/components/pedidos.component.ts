@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Pedido } from '../models/pedido';
 import { PedidosService } from '../services/pedidos.service';
@@ -10,7 +10,7 @@ import { PedidosService } from '../services/pedidos.service';
   templateUrl: '../views/pedidos.component.html',
   styleUrl: '../styles/pedidos.component.scss'
 })
-export class PedidosComponent {
+export class PedidosComponent implements OnInit{
 
   pedidos: Pedido[] = [];
   detalles: any = null;

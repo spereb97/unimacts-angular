@@ -51,7 +51,7 @@
                                                     </thead>
                                                     <tbody class="table-group-divider">
                                                         <tr *ngFor="let produccion of produccionesPiezaFabricada">
-                                                            <td> trabajador id </td>
+                                                            <td> {{ produccion.trabajador.id }} </td>
                                                             <td> {{ produccion.tarea.nombre }} </td>
                                                             <td> {{ produccion.fechaInicio }} </td>
                                                             <td> {{ produccion.fechaFin }} </td>
@@ -79,7 +79,7 @@
                         </thead>
                         <tbody class="table-group-divider">
                             <tr *ngFor="let produccion of producciones">
-                                <td> trabajador id </td>
+                                <td> {{ produccion.trabajador.id }} </td>
                                 <td> {{ produccion.piezaFabricada.codigo }} </td>
                                 <td> {{ produccion.tarea.nombre }} </td>
                                 <td> {{ produccion.fechaInicio }} </td>

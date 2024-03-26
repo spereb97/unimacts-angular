@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Tarea } from '../models/tarea';
 import { TareaService } from '../services/tarea.service';
@@ -11,7 +11,7 @@ import { TareaService } from '../services/tarea.service';
   styleUrl: '../styles/tareas.component.scss'
 })
 
-export class TareasComponent {
+export class TareasComponent implements OnInit{
 
   tareas: Tarea[] = [];
 

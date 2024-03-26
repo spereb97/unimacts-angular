@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PiezaFabricada } from '../models/piezaFabricada';
 import { PiezaFabricadaService } from '../services/piezaFabricada.service';
@@ -13,7 +13,7 @@ import { ProduccionService } from '../services/produccion.service';
   styleUrl: '../styles/produccion.component.scss'
 })
 
-export class ProduccionComponent {
+export class ProduccionComponent implements OnInit{
 
   tabs = [
     { id: 'piezasFabricadas', title: 'PIEZAS  FABRICADAS', header: 'PIEZAS FABRICADAS' },

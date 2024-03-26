@@ -1,1 +1,64 @@
-<p>trabajadores works!</p>
+<div class="container-fluid">
+    <div class="row text-center">
+        <h1>TRABAJADORES</h1>
+    </div>
+    <div class="row">
+        <!-- Div izquierdo -->
+        <div class="col-3" style="height: 65vh; overflow: auto;">
+            <div class="content">
+                <ul class="list-group">
+                    <li class="list-group-item rounded mt-2 border" *ngFor="let trabajador of trabajadores; let i = index"
+                        [ngClass]="i % 2 === 0 ? 'par' : 'impar'" 
+                        (click)="cargarTrabajadorById(trabajador.id)"
+                        style="-webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none;">
+                        {{ trabajador.id }}. {{trabajador.nombre}} {{trabajador.apellidos}}
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Div derecho -->
+        <div class="col-9">
+            <!-- Datos del cliente-->
+            <div class="content rounded border px-4 pt-3  mt-2" *ngIf="trabajadorById">
+                <p class="fs-5 text-uppercase">
+                    DATOS {{trabajadorById.nombre}} {{trabajadorById.apellidos }}:
+                </p>
+                <p>Id: {{trabajadorById.id }}</p>
+                <p>DNI: {{trabajadorById.dni }}</p>
+                <p>Nombre: {{trabajadorById.nombre }}</p>
+                <p>Apellidos: {{trabajadorById.apellidos }}</p>
+                <p>Fecha de nacimiento: {{trabajadorById.fechaNacimiento }}</p>
+                <p>Email: {{trabajadorById.email }}</p>
+                <p>Telefono: {{trabajadorById.telefono }}</p>
+                <p>Fecha de incorporacion: {{trabajadorById.fechaIncorporacion }}</p>
+                <p>Fecha de cese: {{trabajadorById.fechaCese }}</p>
+            </div>
+
+            <!-- Producciones del trabajador-->
+            <div class="content rounded border px-4 pt-3  mt-2" *ngIf="trabajadorById">
+                <p class="fs-5 text-center">
+                    PRODUCCIONES:
+                </p>
+                <table class="table table-striped table-hover text-center">
+                    <thead>
+                        <tr>
+                            <th>PIEZA FABRICADA</th>
+                            <th>TAREA</th>
+                            <th>FECHA INICIO</th>
+                            <th>FECHA FIN</th>
+                        </tr>
+                    </thead>
+                    <tbody class="table-group-divider">
+                        <tr *ngFor="let producciones of trabajadorById.producciones">
+                            <td>{{ producciones.piezaFabricada.codigo }}</td>
+                            <td>{{ producciones.tarea.nombre }}</td>
+                            <td>{{ producciones.fechaInicio }}</td>
+                            <td>{{ producciones.fechaFin }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
