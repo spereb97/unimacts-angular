@@ -1,24 +1,14 @@
-table.table-striped tbody tr:nth-of-type(odd) td{
-    background-color: #fcfcfc;
-}
-
-table.table-hover tbody tr:hover td{
-    background-color: #393939;
-    color: white;
-    cursor: pointer;
-}
-
-table tbody tr.detalles-pedido table tbody tr:nth-of-type(odd) td{
+table tbody tr.detalles-pedido table tbody tr:nth-of-type(odd) td {
     box-shadow: none;
     background-color: #f5f5f5 !important;
 }
 
-table.table-striped tbody tr.detalles-pedido td{
+table.table-striped tbody tr.detalles-pedido td {
     box-shadow: none;
-    background-color: white ;
+    background-color: white;
 }
 
-table.table-hover tbody tr.detalles-pedido:hover td{
+table.table-hover tbody tr.detalles-pedido:hover td {
     box-shadow: none;
     background-color: white;
     color: black;

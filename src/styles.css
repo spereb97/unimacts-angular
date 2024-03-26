@@ -1,0 +1,9 @@
+table.table-striped tbody tr:nth-of-type(odd) td{
+    background-color: #fcfcfc;
+}
+
+table.table-hover tbody tr:hover td{
+    background-color: #393939;
+    color: white;
+    cursor: pointer;
+}

@@ -1,16 +1,6 @@
-table.table-striped tbody tr:nth-of-type(odd) td {
-    background-color: #fcfcfc;
-}
-
 .col-3 .list-group-item:hover {
     background-color: #fdfdfd;
     color: black;
-    cursor: pointer;
-}
-
-table.table-hover tbody tr:hover td {
-    background-color: #393939;
-    color: white;
     cursor: pointer;
 }
 

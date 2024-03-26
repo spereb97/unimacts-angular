@@ -1,26 +1,46 @@
-<header class="mb-4 border-bottom paddingx-6 bg-white sticky-top">
-  <nav class="navbar navbar-expand-lg">
-    <a href="/">
-      <img src="/assets/images/unimacts_logo.png" alt="UNIMACTS_LOGO" height="20px"/>
+<header class="mb-4 border-bottom bg-white paddingx-6 sticky-top">
+  <nav class="navbar navbar-expand-md"> 
+    <a class="navbar-nav navbar-brand" href="/" style="width: 210px;">
+      <img src="/assets/images/unimacts_logo.png" alt="UNIMACTS_LOGO" width="210px"/>
     </a>
 
     <span class="navbar-toggler navbar-toggler-icon border-0 ms-1" type="button" data-bs-toggle="collapse"
       data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
       aria-label="Toggle navigation"></span>
-
+    
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mx-auto ">
-        <li class="nav-item" *ngFor="let item of navItems; index as i"><a href="/{{ navRoutes[i] }}" class="nav-link link-dark">{{ item }}</a> </li>
+      <ul class="navbar-nav me-auto">
+        
+        
+        <ng-container *ngFor="let item of visibleItems; index as i">
+          <li class="nav-item">
+            <a href="/{{ navRoutes[i] }}" class="nav-link link-dark">{{ item }}</a> 
+          </li>
+        </ng-container>
+        <li *ngIf="dropdownItems.length > 0" ngbDropdown class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle  link-dark" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            Mas...
+          </a>
+          <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a *ngFor="let item of dropdownItems; index as i" class="dropdown-item" href="/{{ navRoutes[i+bp] }}">{{ item }}</a>
+          </div>
+        </li>
+        
+        <!--<li class="nav-item" *ngFor="let item of navItems; index as i">
+          <a href="/{{ navRoutes[i] }}" class="nav-link link-dark">{{ item }}</a> 
+        </li>-->
       </ul>
 
       <ul class="navbar-nav">
-        <li class="dropdown">
-          <a class="nav-link dropdown-toggle link-dark" href="#" id="navbarDropdown" role="button"
-            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle link-dark" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Sergio Perez Blanco
           </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li *ngFor="let dropdown of navDropdown, index as i"><a class="dropdown-item" href="/{{ navDropdownRoutes[i] }}">{{ dropdown }}</a></li>
+          <ul class="dropdown-menu">
+            <li *ngFor="let dropdown of navDropdown, index as i">
+              <a class="dropdown-item" href="/{{ navDropdownRoutes[i] }}">{{ dropdown }}</a>
+            </li>
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="#">Cerrar sesion</a></li>
           </ul>

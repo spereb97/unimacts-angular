@@ -2,16 +2,6 @@
     cursor: pointer;
 }
 
-table.table-striped tbody tr:nth-of-type(odd) td{
-    background-color: #fcfcfc;
-}
-
-table.table-hover tbody tr:hover td{
-    background-color: #393939;
-    color: white;
-    cursor: pointer;
-}
-
 table tbody tr.produccionPiezaFabricada table tbody tr:nth-of-type(odd) td{
     box-shadow: none;
     background-color: #f5f5f5 !important;
