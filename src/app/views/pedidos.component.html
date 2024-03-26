@@ -17,7 +17,7 @@
                 </thead>
                 <tbody class="table-group-divider">
                     <ng-container *ngFor="let pedido of pedidos">
-                        <tr (click)="mostrarDetalles(pedido)" (click)="cargarClienteById(pedido.id)">
+                        <tr (click)="mostrarDetalles(pedido)" (click)="cargarPedidoById(pedido.id)">
                             <td>{{ pedido.id }}</td>
                             <td>{{pedido.cliente.nombreEmpresa}}</td>
                             <td>

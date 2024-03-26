@@ -1,1 +1,94 @@
-<p>produccion works!</p>
+<div class="container-fluid">
+    <ul class="nav nav-tabs">
+        <li class="nav-item" *ngFor="let tab of tabs">
+            <a (click)="activateTab(tab.id)" [class.active]="activeTab === tab.id" class="nav-link link-dark" data-toggle="tab" role="tab">{{ tab.title }}</a>
+        </li>
+    </ul>
+    
+    <div class="tab-content">
+        <div *ngFor="let tab of tabs" [class.show]="activeTab === tab.id" [class.active]="activeTab === tab.id" class="tab-pane fade" [id]="tab.id" role="tabpanel">
+
+            <!-- Contenido referente a tab activo -->
+            <div class="row text-center mt-4">
+                <h1>{{ tab.header }}</h1>
+            </div>
+            <div class="row">
+                <div class="content rounded border px-4 pt-3  mt-2">
+
+                    <!-- Tabla referente a tab PIEZAS -->
+                    <table *ngIf="activeTab === 'piezasFabricadas'" class="table table-striped table-hover text-center">
+                        <thead>
+                            <tr>
+                                <th>CODIGO</th>
+                                <th>PIEZA</th>
+                                <th>ESTADO</th>
+                                <th>PEDIDO</th>
+                            </tr>
+                        </thead>
+                        <tbody class="table-group-divider">
+                            <ng-container *ngFor="let piezaFabricada of piezasFabricadas">
+                                <tr (click)="mostrarProduccion(piezaFabricada)" (click)="cargarPiezaFabricadaById(piezaFabricada.id)" >
+                                    <td> {{piezaFabricada.codigo }} </td>
+                                    <td> {{piezaFabricada.pieza.nombre }} </td>
+                                    <td>
+                                        <div [ngStyle]="getEstadoStyles(piezaFabricada.estado)">{{ piezaFabricada.estado }}</div>
+                                    </td>
+                                    <td> {{piezaFabricada.pedido.id }} </td>
+                                </tr>
+                                <tr class="produccionPiezaFabricada" style="width: 100%;" *ngIf="piezaSeleccionada === piezaFabricada">
+                                    <td colspan="5" class="px-5 pt-4">
+                                        <div class="container-fluid">
+                                            <div class="row">
+                                                <p class="fs-4">PRODUCCION</p>
+                                                <table class="table text-center">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>TRABAJADOR</th>
+                                                            <th>TAREA</th>
+                                                            <th>FECHA INICIO</th>
+                                                            <th>FECHA FIN</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody class="table-group-divider">
+                                                        <tr *ngFor="let produccion of produccionesPiezaFabricada">
+                                                            <td> trabajador id </td>
+                                                            <td> {{ produccion.tarea.nombre }} </td>
+                                                            <td> {{ produccion.fechaInicio }} </td>
+                                                            <td> {{ produccion.fechaFin }} </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </ng-container>
+                        </tbody>
+                    </table>
+
+                    <!-- Tabla referente a tab TAREAS -->
+                    <table *ngIf="activeTab === 'produccion'" class="table table-striped table-hover text-center">
+                        <thead>
+                            <tr>
+                                <th>TRABAJADOR</th>
+                                <th>PIEZA FABRICADA</th>
+                                <th>TAREA</th>
+                                <th>FECHA INICIO</th>
+                                <th>FECHA FIN</th>
+                            </tr>
+                        </thead>
+                        <tbody class="table-group-divider">
+                            <tr *ngFor="let produccion of producciones">
+                                <td> trabajador id </td>
+                                <td> {{ produccion.piezaFabricada.codigo }} </td>
+                                <td> {{ produccion.tarea.nombre }} </td>
+                                <td> {{ produccion.fechaInicio }} </td>
+                                <td> {{ produccion.fechaFin }} </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

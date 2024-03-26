@@ -72,7 +72,7 @@ export class PedidosComponent {
     }
   }
 
-  cargarClienteById(id: string) {
+  cargarPedidoById(id: string) {
     this.pedidosService.getDetallePedidos(id).subscribe(detalles => {
       this.detalles = detalles.detallesPedido;
     })
