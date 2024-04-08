@@ -10,7 +10,7 @@ import { Produccion } from '../models/produccion';
 
 export class PiezaFabricadaService {
 
-  private piezasFabricadasUrl = 'http://192.168.68.56:8081/api/v1/piezas_fabricadas';
+  private piezasFabricadasUrl = 'http://192.168.68.57:8081/api/v1/piezas_fabricadas';
 
   constructor(private http: HttpClient) { }
 

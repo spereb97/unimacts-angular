@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class ProduccionService {
 
-  private produccionUrl = 'http://192.168.68.56:8081/api/v1/producciones';
+  private produccionUrl = 'http://192.168.68.57:8081/api/v1/producciones';
 
   constructor(private http: HttpClient) { }
 

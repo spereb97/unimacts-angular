@@ -9,7 +9,7 @@ import { Pieza } from '../models/pieza';
 
 export class PiezaService {
 
-  private piezasUrl = 'http://192.168.68.56:8081/api/v1/piezas';
+  private piezasUrl = 'http://192.168.68.57:8081/api/v1/piezas';
 
   constructor(private http: HttpClient) { }
 

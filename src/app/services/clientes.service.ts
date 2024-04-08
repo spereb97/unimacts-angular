@@ -9,7 +9,7 @@ import { Cliente } from '../models/cliente';
 
 export class ClientesService {
 
-  private clientesUrl = 'http://192.168.68.56:8081/api/v1/clientes';
+  private clientesUrl = 'http://192.168.68.57:8081/api/v1/clientes';
 
   constructor(private http: HttpClient) { }
 

@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class PedidosService {
 
-  private pedidosUrl = 'http://192.168.68.56:8081/api/v1/pedidos';
+  private pedidosUrl = 'http://192.168.68.57:8081/api/v1/pedidos';
 
   constructor(private http: HttpClient) { }
 

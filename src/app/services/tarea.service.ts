@@ -9,7 +9,7 @@ import { Tarea } from '../models/tarea';
 
 export class TareaService {
 
-  private tareasUrl = 'http://192.168.68.56:8081/api/v1/tareas';
+  private tareasUrl = 'http://192.168.68.57:8081/api/v1/tareas';
 
   constructor(private http: HttpClient) { }
 

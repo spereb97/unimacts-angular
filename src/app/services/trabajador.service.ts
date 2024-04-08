@@ -8,7 +8,7 @@ import { Trabajador } from '../models/trabajador';
 })
 export class TrabajadorService {
 
-  private trabajadorUrl = 'http://192.168.68.56:8081/api/v1/trabajadores';
+  private trabajadorUrl = 'http://192.168.68.57:8081/api/v1/trabajadores';
 
   constructor(private http: HttpClient) { }
 
